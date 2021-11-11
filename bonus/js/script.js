@@ -8,7 +8,6 @@ var nicePlaces = new Vue (
         data : {
             // counter to change active
             slideActive : 0,
-            timer: null,
             // objects array to create carousel
             slides: [
                 {
@@ -55,33 +54,10 @@ var nicePlaces = new Vue (
                     this.slideActive --;
                 }
             },
-            // change "focused thumb"
-            changeFocus: function () {
-                this.slideActive = setInterval(() => {
-                    if(this.slideActive < this.slides.length - 1){
-                        this.slideActive++;
-                    }else {
-                        this.slideActive = 0;
-                    }
-                }, 5000)
-            },
-
-            startRotation: function() {
-                this.timer = setInterval(this.next, 5000);
-            },
-
-            stopRotation: function() {
-                clearTimeout(this.timer);
-                this.timer = null;
-            },
             
-            next: function() {
-                if(this.slideActive < this.slides.length - 1){
-                    this.slideActive++;
-                }else {
-                    this.slideActive = 0;
-                }
-            }
+            startRotation: function() {
+                this.timer = setInterval(this.nextImg, 5000);
+            },
         },
         mounted: 
             function () {
