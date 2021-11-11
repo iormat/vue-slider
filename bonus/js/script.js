@@ -56,7 +56,7 @@ var nicePlaces = new Vue (
             },
             
             startRotation: function() {
-                this.timer = setInterval(this.nextImg, 5000);
+                setInterval(this.nextImg, 5000);
             },
         },
         mounted: 
