@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title> Carousel - Vue </title>
+</head>
+<body>
+    <div id="container">
+        <header>
+            <h1> Beautiful Places to visit </h1>
+        </header>
+    
+        <main>
+            <section id="carousel">
+                <div class="item active">
+                    <img :src="slides[slideActive].image" :alt="slides[slideActive].title">
+                    <div class="text">
+                        <h3> {{slides[slideActive].title}} </h3>
+                        <p> {{slides[slideActive].text}} </p>
+                    </div>
+                </div>
+            </section>
+    
+            <section id="thumbs">
+                <div v-for="slide, i in slides" :key="i" class="thumb" :class=" i === slideActive ? 'active' :  ''">
+                    <img :src="slide.image" :alt="slide.title">
+                </div>
+    
+                <div class="arrow prev" @click="prevImg"><i class="fas fa-angle-up"></i></div>
+                <div class="arrow next" @click="nextImg"><i class="fas fa-angle-down"></i></div>
+            </section>
+        </main>
+    </div>
+    <!-- vue.js and personal script -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
